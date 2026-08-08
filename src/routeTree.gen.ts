@@ -20,6 +20,7 @@ import { Route as AuthenticatedOrganizationsIndexRouteImport } from './routes/_a
 import { Route as AuthenticatedSecurityIndexRouteImport } from './routes/_authenticated/security.index'
 import { Route as AuthenticatedSecuritySessionsRouteImport } from './routes/_authenticated/security.sessions'
 import { Route as AuthenticatedSettingsIndexRouteImport } from './routes/_authenticated/settings.index'
+import { Route as AuthenticatedOrganizationsOrgIdProjectsRouteImport } from './routes/_authenticated/organizations.$orgId.projects'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -83,6 +84,12 @@ const AuthenticatedSettingsIndexRoute =
     path: '/settings/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedOrganizationsOrgIdProjectsRoute =
+  AuthenticatedOrganizationsOrgIdProjectsRouteImport.update({
+    id: '/organizations/$orgId/projects',
+    path: '/organizations/$orgId/projects',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/organizations/': typeof AuthenticatedOrganizationsIndexRoute
   '/security/': typeof AuthenticatedSecurityIndexRoute
   '/settings/': typeof AuthenticatedSettingsIndexRoute
+  '/organizations/$orgId/projects': typeof AuthenticatedOrganizationsOrgIdProjectsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -107,6 +115,7 @@ export interface FileRoutesByTo {
   '/organizations': typeof AuthenticatedOrganizationsIndexRoute
   '/security': typeof AuthenticatedSecurityIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
+  '/organizations/$orgId/projects': typeof AuthenticatedOrganizationsOrgIdProjectsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -121,6 +130,7 @@ export interface FileRoutesById {
   '/_authenticated/organizations/': typeof AuthenticatedOrganizationsIndexRoute
   '/_authenticated/security/': typeof AuthenticatedSecurityIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
+  '/_authenticated/organizations/$orgId/projects': typeof AuthenticatedOrganizationsOrgIdProjectsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -135,6 +145,7 @@ export interface FileRouteTypes {
     | '/organizations/'
     | '/security/'
     | '/settings/'
+    | '/organizations/$orgId/projects'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -147,6 +158,7 @@ export interface FileRouteTypes {
     | '/organizations'
     | '/security'
     | '/settings'
+    | '/organizations/$orgId/projects'
   id:
     | '__root__'
     | '/'
@@ -160,6 +172,7 @@ export interface FileRouteTypes {
     | '/_authenticated/organizations/'
     | '/_authenticated/security/'
     | '/_authenticated/settings/'
+    | '/_authenticated/organizations/$orgId/projects'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -247,6 +260,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSettingsIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/organizations/$orgId/projects': {
+      id: '/_authenticated/organizations/$orgId/projects'
+      path: '/organizations/$orgId/projects'
+      fullPath: '/organizations/$orgId/projects'
+      preLoaderRoute: typeof AuthenticatedOrganizationsOrgIdProjectsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
@@ -259,6 +279,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedOrganizationsIndexRoute: typeof AuthenticatedOrganizationsIndexRoute
   AuthenticatedSecurityIndexRoute: typeof AuthenticatedSecurityIndexRoute
   AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
+  AuthenticatedOrganizationsOrgIdProjectsRoute: typeof AuthenticatedOrganizationsOrgIdProjectsRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -270,6 +291,8 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedOrganizationsIndexRoute: AuthenticatedOrganizationsIndexRoute,
   AuthenticatedSecurityIndexRoute: AuthenticatedSecurityIndexRoute,
   AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
+  AuthenticatedOrganizationsOrgIdProjectsRoute:
+    AuthenticatedOrganizationsOrgIdProjectsRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
