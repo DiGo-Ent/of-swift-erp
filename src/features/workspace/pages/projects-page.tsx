@@ -33,8 +33,8 @@ export function ProjectsPage() {
         org_id: orgId,
         service_id: serviceId!,
         name: name.trim(),
-        code: code.trim() || undefined,
-        description: description.trim() || undefined,
+        ...(code.trim() ? { code: code.trim() } : {}),
+        ...(description.trim() ? { description: description.trim() } : {}),
       }),
     onSuccess: async (project) => {
       activeWorkspace.setOrg(orgId);
