@@ -8,6 +8,7 @@ export const SECTIONS = [
     items: [
       { to: "/dashboard", label: "Overview" },
       { to: "/dashboard/activity", label: "Activity" },
+      { to: "/organizations", label: "Organizations" },
     ],
   },
   {
