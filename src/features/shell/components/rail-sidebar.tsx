@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { LogOut } from "lucide-react";
 import { SECTIONS, type Section } from "../navigation";
-import logo from "@/assets/digo-logo.png.asset.json";
 
 type Props = {
   section: Section;
