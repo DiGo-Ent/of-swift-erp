@@ -54,7 +54,7 @@ export function OrganizationsPage() {
       setLogo(null);
       navigate({ to: "/organizations/$orgId/projects", params: { orgId: org.id } });
     },
-    onError: (e: unknown) => setError(e instanceof Error ? e.message : "Could not create organization"),
+    onError: (e: unknown) => setError(errorMessage(e, "Could not create organization")),
   });
 
   const set = (k: keyof OrganizationInput) => (e: React.ChangeEvent<HTMLInputElement>) =>
