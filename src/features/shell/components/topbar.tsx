@@ -1,38 +1,39 @@
-import { Link } from "@tanstack/react-router";
 import { PanelLeft } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import type { Section } from "../navigation";
 import logo from "@/assets/digo-logo.png.asset.json";
+import { WorkspaceSwitcher } from "./workspace-switcher";
 
 type Props = {
   email: string | null | undefined;
   sidebarOpen: boolean;
+  showSwitcher: boolean;
   onExpand: () => void;
   onSignOut: () => void;
 };
 
-export function Topbar({ email, sidebarOpen, onExpand, onSignOut }: Props) {
+/** Global full-width header — always spans the whole viewport above the sidebars. */
+export function Topbar({ email, sidebarOpen, showSwitcher, onExpand, onSignOut }: Props) {
   return (
-    <header className="flex h-12 shrink-0 items-center gap-2 border-b border-border px-3 sm:gap-3 sm:px-4">
-      {!sidebarOpen && (
+    <header className="z-30 flex h-12 w-full shrink-0 items-center gap-2 border-b border-border bg-background px-3 sm:gap-3 sm:px-4">
+      {!sidebarOpen && showSwitcher && (
         <button
           onClick={onExpand}
           title="Expand sidebar"
-          className="hidden shrink-0 text-muted-foreground lg:block"
+          className="hidden shrink-0 text-muted-foreground hover:text-foreground lg:block"
         >
           <PanelLeft size={15} />
         </button>
       )}
-      <img
-        src={logo.url}
-        alt="DiGo"
-        width={22}
-        height={22}
-        className="h-[22px] w-[22px] shrink-0 lg:hidden"
-      />
-      <div className="flex min-w-0 items-baseline gap-2">
-        <span className="truncate text-sm font-medium">ERP Solution</span>
-        <span className="hidden text-[11px] text-muted-foreground sm:inline">Powered by DiGo</span>
-      </div>
+      <img src={logo.url} alt="DiGo" width={22} height={22} className="h-[22px] w-[22px] shrink-0" />
+      {showSwitcher ? (
+        <WorkspaceSwitcher />
+      ) : (
+        <div className="flex min-w-0 items-baseline gap-2">
+          <span className="truncate text-sm font-medium">ERP Solution</span>
+          <span className="hidden text-[11px] text-muted-foreground sm:inline">Powered by DiGo</span>
+        </div>
+      )}
       <span className="ml-auto hidden max-w-[200px] truncate text-xs text-muted-foreground md:block">
         {email}
       </span>

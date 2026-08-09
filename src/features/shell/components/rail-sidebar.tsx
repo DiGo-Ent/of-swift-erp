@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { LogOut } from "lucide-react";
 import { SECTIONS, type Section } from "../navigation";
-import logo from "@/assets/digo-logo.png.asset.json";
 
 type Props = {
   section: Section;
@@ -13,7 +12,7 @@ type Props = {
 export function RailSidebar({ section, onExpand, onSignOut }: Props) {
   return (
     <nav className="hidden w-14 shrink-0 flex-col items-center gap-1 border-r border-sidebar-border bg-sidebar py-3 lg:flex">
-      <img src={logo.url} alt="DiGo" width={26} height={26} className="mb-3 h-[26px] w-[26px]" />
+
       {SECTIONS.map((s) => {
         const Icon = s.icon;
         return (
