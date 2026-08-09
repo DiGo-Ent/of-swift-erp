@@ -3,7 +3,7 @@ import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Btn, Field, Label, Modal, Panel, PageHeader } from "@/components/ui-kit";
 import { activeWorkspace } from "../active-workspace";
-import { createProject, listOrganizations, listProjects, listServices } from "../api";
+import { createProject, errorMessage, listOrganizations, listProjects, listServices } from "../api";
 
 const route = getRouteApi("/_authenticated/organizations/$orgId/projects");
 
