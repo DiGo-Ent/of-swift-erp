@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Btn, Field, Label, Modal, Panel, PageHeader } from "@/components/ui-kit";
 import { useAuthUser } from "@/features/shell/hooks/use-auth-user";
 import { activeWorkspace } from "../active-workspace";
-import { createOrganization, listOrganizations, uploadOrgLogo, type OrganizationInput } from "../api";
+import { createOrganization, errorMessage, listOrganizations, uploadOrgLogo, type OrganizationInput } from "../api";
 
 const EMPTY: OrganizationInput = {
   name: "",
