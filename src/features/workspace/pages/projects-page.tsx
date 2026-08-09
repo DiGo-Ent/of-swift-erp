@@ -27,13 +27,16 @@ export function ProjectsPage() {
   const org = orgs.data?.find((o) => o.id === orgId);
   const usedServiceIds = new Set((projects.data ?? []).map((p) => p.service_id));
 
+  // Codes are normalised (spaces → dashes) so "HRM -01" becomes a valid "HRM-01".
+  const cleanCode = code.trim().replace(/\s+/g, "-").replace(/-+/g, "-");
+
   const create = useMutation({
     mutationFn: () =>
       createProject({
         org_id: orgId,
         service_id: serviceId!,
         name: name.trim(),
-        ...(code.trim() ? { code: code.trim() } : {}),
+        ...(cleanCode ? { code: cleanCode } : {}),
         ...(description.trim() ? { description: description.trim() } : {}),
       }),
     onSuccess: async (project) => {
