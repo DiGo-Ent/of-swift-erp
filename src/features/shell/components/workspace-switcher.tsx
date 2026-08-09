@@ -17,7 +17,7 @@ function useOutsideClose(onClose: () => void) {
   return ref;
 }
 
-type MenuItem = { id: string; label: string; hint?: string };
+type MenuItem = { id: string; label: string; hint?: string | undefined };
 
 function Switcher({
   label,
