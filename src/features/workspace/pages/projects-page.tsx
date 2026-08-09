@@ -3,7 +3,7 @@ import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Btn, Field, Label, Modal, Panel, PageHeader } from "@/components/ui-kit";
 import { activeWorkspace } from "../active-workspace";
-import { createProject, listOrganizations, listProjects, listServices } from "../api";
+import { createProject, errorMessage, listOrganizations, listProjects, listServices } from "../api";
 
 const route = getRouteApi("/_authenticated/organizations/$orgId/projects");
 
@@ -27,13 +27,16 @@ export function ProjectsPage() {
   const org = orgs.data?.find((o) => o.id === orgId);
   const usedServiceIds = new Set((projects.data ?? []).map((p) => p.service_id));
 
+  // Codes are normalised (spaces → dashes) so "HRM -01" becomes a valid "HRM-01".
+  const cleanCode = code.trim().replace(/\s+/g, "-").replace(/-+/g, "-");
+
   const create = useMutation({
     mutationFn: () =>
       createProject({
         org_id: orgId,
         service_id: serviceId!,
         name: name.trim(),
-        ...(code.trim() ? { code: code.trim() } : {}),
+        ...(cleanCode ? { code: cleanCode } : {}),
         ...(description.trim() ? { description: description.trim() } : {}),
       }),
     onSuccess: async (project) => {
@@ -46,8 +49,7 @@ export function ProjectsPage() {
       setDescription("");
       navigate({ to: "/dashboard" });
     },
-    onError: (e: unknown) =>
-      setError(e instanceof Error ? e.message : "Could not create project"),
+    onError: (e: unknown) => setError(errorMessage(e, "Could not create project")),
   });
 
   return (

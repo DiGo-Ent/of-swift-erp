@@ -107,3 +107,12 @@ export async function signedLogoUrl(path: string | null): Promise<string | null>
   const { data } = await supabase.storage.from(LOGO_BUCKET).createSignedUrl(path, 3600);
   return data?.signedUrl ?? null;
 }
+
+/** Surfaces the real Postgres/RPC message instead of a generic fallback. */
+export function errorMessage(e: unknown, fallback: string): string {
+  if (e && typeof e === "object" && "message" in e) {
+    const m = (e as { message?: unknown }).message;
+    if (typeof m === "string" && m.trim()) return m;
+  }
+  return fallback;
+}
