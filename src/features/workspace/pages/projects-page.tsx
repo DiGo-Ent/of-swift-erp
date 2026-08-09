@@ -49,8 +49,7 @@ export function ProjectsPage() {
       setDescription("");
       navigate({ to: "/dashboard" });
     },
-    onError: (e: unknown) =>
-      setError(e instanceof Error ? e.message : "Could not create project"),
+    onError: (e: unknown) => setError(errorMessage(e, "Could not create project")),
   });
 
   return (
