@@ -31,8 +31,10 @@ export const PwaInstallPrompt: React.FC = React.memo(() => {
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     window.addEventListener('appinstalled', () => setIsVisible(false));
 
-    // iOS has no beforeinstallprompt — show manual instructions instead
-    const iosTimer = isIos() ? window.setTimeout(() => setIsVisible(true), 1500) : undefined;
+    // Show the notice immediately on every eligible device.
+    // If beforeinstallprompt arrives later, the card upgrades to a 1-click install button.
+    const showTimer = window.setTimeout(() => setIsVisible(true), 600);
+
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
