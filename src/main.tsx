@@ -8,6 +8,8 @@ import { OrganizationProvider } from '@/context/useOrganization';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 import { AppRoutes } from '@/routes/AppRoutes';
 import { registerServiceWorker } from '@/pwa/pwaRegister';
+import { PwaInstallPrompt } from '@/components/common/PwaInstallPrompt';
+
 import '@/styles/main.css';
 
 
@@ -33,6 +35,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <Toaster position="top-right" richColors closeButton />
+        <PwaInstallPrompt />
         <BrowserRouter>
           <ThemeProvider>
             <OrganizationProvider>
@@ -40,6 +43,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             </OrganizationProvider>
           </ThemeProvider>
         </BrowserRouter>
+
       </QueryClientProvider>
     </ErrorBoundary>
   </React.StrictMode>

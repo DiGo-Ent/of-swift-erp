@@ -4,7 +4,6 @@ import { useAuth } from '@/features/auth/hooks/useAuth';
 import { Loading } from '@/components/common/Loading';
 import { useOrganization } from '@/context/useOrganization';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
-import { PwaInstallPrompt } from '@/components/common/PwaInstallPrompt';
 
 // Code-Splitting with React.lazy for high performance bundle splitting
 const AuthPage = lazy(() => import('@/features/auth/pages/AuthPage').then((m) => ({ default: m.AuthPage })));
@@ -112,7 +111,6 @@ export const AppRoutes: React.FC = () => {
 
   return (
     <ErrorBoundary fallbackMode="compact">
-      <PwaInstallPrompt />
       <Suspense fallback={<Fallback />}>
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard/organizations" replace />} />
