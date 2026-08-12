@@ -109,8 +109,11 @@ export const PwaInstallPrompt: React.FC = React.memo(() => {
       <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.45, margin: 0 }}>
         {deferredPrompt
           ? 'Add ERP Solution to your device for faster launch, offline access and an app icon on your home screen.'
-          : 'On iPhone/iPad: tap the Share button, then choose “Add to Home Screen” to install ERP Solution.'}
+          : isIos()
+            ? 'On iPhone/iPad: tap the Share button, then choose “Add to Home Screen” to install ERP Solution.'
+            : 'Open your browser menu and choose “Install app” / “Add to Home screen” to install ERP Solution.'}
       </p>
+
 
       {deferredPrompt && (
         <button
