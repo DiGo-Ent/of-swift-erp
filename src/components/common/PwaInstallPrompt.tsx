@@ -38,7 +38,7 @@ export const PwaInstallPrompt: React.FC = React.memo(() => {
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-      if (iosTimer) window.clearTimeout(iosTimer);
+      window.clearTimeout(showTimer);
     };
   }, []);
 
