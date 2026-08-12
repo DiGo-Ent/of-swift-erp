@@ -31,12 +31,14 @@ export const PwaInstallPrompt: React.FC = React.memo(() => {
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     window.addEventListener('appinstalled', () => setIsVisible(false));
 
-    // iOS has no beforeinstallprompt — show manual instructions instead
-    const iosTimer = isIos() ? window.setTimeout(() => setIsVisible(true), 1500) : undefined;
+    // Show the notice immediately on every eligible device.
+    // If beforeinstallprompt arrives later, the card upgrades to a 1-click install button.
+    const showTimer = window.setTimeout(() => setIsVisible(true), 600);
+
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-      if (iosTimer) window.clearTimeout(iosTimer);
+      window.clearTimeout(showTimer);
     };
   }, []);
 
@@ -107,8 +109,11 @@ export const PwaInstallPrompt: React.FC = React.memo(() => {
       <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.45, margin: 0 }}>
         {deferredPrompt
           ? 'Add ERP Solution to your device for faster launch, offline access and an app icon on your home screen.'
-          : 'On iPhone/iPad: tap the Share button, then choose “Add to Home Screen” to install ERP Solution.'}
+          : isIos()
+            ? 'On iPhone/iPad: tap the Share button, then choose “Add to Home Screen” to install ERP Solution.'
+            : 'Open your browser menu and choose “Install app” / “Add to Home screen” to install ERP Solution.'}
       </p>
+
 
       {deferredPrompt && (
         <button
