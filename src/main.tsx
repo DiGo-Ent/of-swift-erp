@@ -8,6 +8,8 @@ import { OrganizationProvider } from '@/context/useOrganization';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 import { AppRoutes } from '@/routes/AppRoutes';
 import { registerServiceWorker } from '@/pwa/pwaRegister';
+import { PwaInstallPrompt } from '@/components/common/PwaInstallPrompt';
+
 import '@/styles/main.css';
 
 
