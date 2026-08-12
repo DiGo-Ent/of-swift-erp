@@ -1,0 +1,494 @@
+/* ==========================================================================
+   ERP SOLUTION - POWERED BY DIGO
+   ULTRA-CLEAN, MINIMAL & FAST CSS DESIGN SYSTEM (LIGHT & DARK MODES)
+   ========================================================================== */
+
+:root {
+  /* Light Theme (Cream & Blue) */
+  --bg-cream: #F8F6F0;
+  --bg-surface: #FFFFFF;
+  --border-color: #E2DCD0;
+  --border-color-dark: #CFC7B8;
+
+  /* Solid Primary Blue */
+  --blue-primary: #1E40AF;
+  --blue-hover: #1D4ED8;
+  --blue-subtle: #EFF6FF;
+
+  /* Status Colors */
+  --green-success: #15803D;
+  --green-bg: #F0FDF4;
+  --amber-warning: #B45309;
+  --amber-bg: #FFFBEB;
+  --red-danger: #B91C1C;
+  --red-bg: #FEF2F2;
+
+  /* Text */
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+
+  --radius: 6px;
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme (Slate & Sky Blue) */
+  --bg-cream: #0F172A;
+  --bg-surface: #1E293B;
+  --border-color: #334155;
+  --border-color-dark: #475569;
+
+  --blue-primary: #3B82F6;
+  --blue-hover: #60A5FA;
+  --blue-subtle: #1E3A8A;
+
+  --green-success: #34D399;
+  --green-bg: #064E3B;
+  --amber-warning: #FBBF24;
+  --amber-bg: #78350F;
+  --red-danger: #F87171;
+  --red-bg: #7F1D1D;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-cream);
+  color: var(--text-primary);
+  line-height: 1.5;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Zero-Flicker & Tap Highlight Reset */
+button,
+a,
+div {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+button:focus,
+button:active,
+a:focus,
+a:active {
+  outline: none !important;
+}
+
+/* ==========================================================================
+   PRODUCTION ANIMATIONS (DOT PULSE WAVE & GLOW)
+   ========================================================================== */
+
+@keyframes dotPulse {
+
+  0%,
+  80%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.75);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.75;
+    transform: scale(0.98);
+  }
+}
+
+.erp-dot-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 3px;
+}
+
+.erp-dot-pulse span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: currentColor;
+  display: inline-block;
+  animation: dotPulse 1.4s infinite ease-in-out both;
+}
+
+.erp-dot-pulse span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.erp-dot-pulse span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.erp-dot-pulse span:nth-child(3) {
+  animation-delay: 0s;
+}
+
+.spin-animation {
+  animation: spin 0.8s linear infinite !important;
+}
+
+/* Minimal Crisp Buttons */
+.erp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.erp-btn-primary {
+  background-color: var(--blue-primary);
+  color: #FFFFFF;
+}
+
+.erp-btn-primary:hover {
+  background-color: var(--blue-hover);
+}
+
+.erp-btn-secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.erp-btn-secondary:hover {
+  background-color: var(--border-color);
+  border-color: var(--border-color-dark);
+}
+
+.erp-btn-outline {
+  background-color: transparent;
+  color: var(--blue-primary);
+  border-color: var(--blue-primary);
+}
+
+.erp-btn-outline:hover {
+  background-color: var(--blue-subtle);
+}
+
+/* Inputs */
+.erp-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.erp-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.erp-input {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 13px;
+  outline: none;
+}
+
+.erp-input:focus {
+  border-color: var(--blue-primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+/* Clean Cards */
+.erp-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+/* Badges */
+.erp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.erp-badge-blue {
+  background: var(--blue-subtle);
+  color: var(--blue-primary);
+  border: 1px solid var(--blue-primary);
+}
+
+.erp-badge-green {
+  background: var(--green-bg);
+  color: var(--green-success);
+  border: 1px solid var(--green-success);
+}
+
+.erp-badge-amber {
+  background: var(--amber-bg);
+  color: var(--amber-warning);
+  border: 1px solid var(--amber-warning);
+}
+
+.erp-badge-red {
+  background: var(--red-bg);
+  color: var(--red-danger);
+  border: 1px solid var(--red-danger);
+}
+
+/* Grid Layouts */
+.erp-grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.erp-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.erp-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.erp-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE GEOMETRY ENGINE (AUTO-NORMALIZING CONTAINER UTILITIES)
+   ========================================================================== */
+
+.erp-page-view {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-sizing: border-box;
+}
+
+.erp-banner-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.erp-banner-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.erp-banner-content {
+  min-width: 0;
+  flex: 1;
+  word-break: break-word;
+}
+
+.erp-banner-actions {
+  flex-shrink: 0;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.erp-form-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 16px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-sizing: border-box;
+}
+
+.erp-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+}
+
+.erp-auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 30vw, 360px), 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+/* Clean Simple Table */
+.erp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+
+.erp-table th {
+  padding: 8px 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-cream);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.erp-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.erp-table tr:hover td {
+  background: var(--bg-cream);
+}
+
+/* ==========================================================================
+   STRICT MUTUALLY EXCLUSIVE NAVIGATION & NATIVE MOBILE STYLING
+   ========================================================================== */
+
+/* 1. Mobile View strictly (< 768px) */
+@media screen and (max-width: 767.98px) {
+  .erp-desktop-sidebar {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .erp-mobile-bottom-bar {
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  .erp-main-content {
+    padding: 10px 10px 76px 10px !important;
+  }
+
+  /* Compact Native Mobile Card & Font Overrides */
+  .erp-card {
+    padding: 12px 14px !important;
+    border-radius: 8px !important;
+  }
+
+  h2 {
+    font-size: 1.05rem !important;
+  }
+
+  h3 {
+    font-size: 0.92rem !important;
+  }
+
+  h4 {
+    font-size: 0.85rem !important;
+  }
+}
+
+/* 2. Tablet, Laptop & Desktop View strictly (>= 768px) */
+@media screen and (min-width: 768px) {
+  .erp-desktop-sidebar {
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  .erp-mobile-bottom-bar,
+  .erp-mobile-launcher-overlay {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .erp-main-content {
+    padding-bottom: 16px !important;
+  }
+}
+
+/* 3. Specific Tablet & Small Laptop Auto-Normalization (768px to 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .erp-main-content {
+    padding: 14px 16px 20px 16px !important;
+  }
+
+  .erp-card {
+    padding: 14px 14px !important;
+  }
+}
