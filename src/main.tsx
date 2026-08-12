@@ -7,7 +7,9 @@ import { ThemeProvider } from '@/context/ThemeContext';
 import { OrganizationProvider } from '@/context/useOrganization';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 import { AppRoutes } from '@/routes/AppRoutes';
+import { registerServiceWorker } from '@/pwa/pwaRegister';
 import '@/styles/main.css';
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
