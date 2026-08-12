@@ -33,6 +33,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <Toaster position="top-right" richColors closeButton />
+        <PwaInstallPrompt />
         <BrowserRouter>
           <ThemeProvider>
             <OrganizationProvider>
@@ -40,6 +41,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             </OrganizationProvider>
           </ThemeProvider>
         </BrowserRouter>
+
       </QueryClientProvider>
     </ErrorBoundary>
   </React.StrictMode>
