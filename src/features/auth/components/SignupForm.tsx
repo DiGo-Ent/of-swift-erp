@@ -27,12 +27,28 @@ export const SignupForm: React.FC<SignupFormProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
+    const cleanEmail = email.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(cleanEmail)) {
+      setLocalError('Please enter a valid email address.');
+      return;
+    }
+    if (password.length < 8) {
+      setLocalError('Password must be at least 8 characters long.');
+      return;
+    }
+    if (!captchaToken) {
+      setLocalError('Please complete the security verification before continuing.');
+      return;
+    }
+
     setIsSubmitting(true);
     setLocalError(null);
     setSuccessMsg(null);
     try {
       const res = await onSubmit({
-        email,
+        email: cleanEmail,
         password,
         captchaToken
       });
@@ -51,14 +67,19 @@ export const SignupForm: React.FC<SignupFormProps> = ({
   const activeError = localError ? formatAuthError(localError) : error ? formatAuthError(error) : null;
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+    <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
       <Input
         label="Email"
         type="email"
         placeholder="e.g. name@company.com"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => { setEmail(e.target.value); if (localError) setLocalError(null); }}
         icon={<Mail size={14} />}
+        autoComplete="email"
+        inputMode="email"
+        spellCheck={false}
+        autoCapitalize="none"
+        maxLength={255}
         required
         autoFocus
       />
@@ -68,8 +89,11 @@ export const SignupForm: React.FC<SignupFormProps> = ({
         type="password"
         placeholder="Minimum 8 characters"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => { setPassword(e.target.value); if (localError) setLocalError(null); }}
         icon={<Lock size={14} />}
+        autoComplete="new-password"
+        minLength={8}
+        maxLength={128}
         required
       />
 
@@ -81,10 +105,11 @@ export const SignupForm: React.FC<SignupFormProps> = ({
       </div>
 
       {/* Create Account Submit Button */}
-      <Button type="submit" variant="primary" isLoading={isSubmitting} style={{ width: '100%', marginTop: '4px' }}>
+      <Button type="submit" variant="primary" isLoading={isSubmitting} disabled={isSubmitting} style={{ width: '100%', marginTop: '4px' }}>
         <UserCheck size={14} />
         <span>Create Account</span>
       </Button>
+
 
       {/* Compact User-Friendly Error Message DIRECTLY BELOW Register Button */}
       {activeError && (
