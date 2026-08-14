@@ -28,10 +28,26 @@ export const LoginForm: React.FC<LoginFormProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
+    const cleanEmail = email.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(cleanEmail)) {
+      setLocalError('Please enter a valid email address.');
+      return;
+    }
+    if (!password) {
+      setLocalError('Please enter your password.');
+      return;
+    }
+    if (!captchaToken) {
+      setLocalError('Please complete the security verification before signing in.');
+      return;
+    }
+
     setIsSubmitting(true);
     setLocalError(null);
     try {
-      await onSubmit({ email, password, captchaToken });
+      await onSubmit({ email: cleanEmail, password, captchaToken });
     } catch (err: any) {
       setLocalError(formatAuthError(err));
       setCaptchaResetKey((k) => k + 1);
@@ -44,14 +60,19 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   const activeError = localError ? formatAuthError(localError) : error ? formatAuthError(error) : null;
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+    <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
       <Input
         label="Work Email Address"
         type="email"
         placeholder="Enter your registered email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => { setEmail(e.target.value); if (localError) setLocalError(null); }}
         icon={<Mail size={14} />}
+        autoComplete="username"
+        inputMode="email"
+        spellCheck={false}
+        autoCapitalize="none"
+        maxLength={255}
         required
         autoFocus
       />
@@ -61,8 +82,10 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         type="password"
         placeholder="Enter password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => { setPassword(e.target.value); if (localError) setLocalError(null); }}
         icon={<Lock size={14} />}
+        autoComplete="current-password"
+        maxLength={128}
         required
       />
 
@@ -85,10 +108,11 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       </div>
 
       {/* Sign In Submit Button */}
-      <Button type="submit" variant="primary" isLoading={isSubmitting} style={{ width: '100%', marginTop: '4px' }}>
+      <Button type="submit" variant="primary" isLoading={isSubmitting} disabled={isSubmitting} style={{ width: '100%', marginTop: '4px' }}>
         <span>Sign In</span>
         <ArrowRight size={14} />
       </Button>
+
 
       {/* Compact User-Friendly Error Message DIRECTLY BELOW Sign In Button */}
       {activeError && (
