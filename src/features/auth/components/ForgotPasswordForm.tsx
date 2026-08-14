@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Mail, Send, ArrowLeft, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Send, ArrowLeft, CheckCircle, AlertCircle, ShieldCheck } from 'lucide-react';
 import { Input } from '@/components/common/Input';
 import { Button } from '@/components/common/Button';
+import { Turnstile } from '@/components/common/Turnstile';
 import { formatAuthError } from '@/features/auth/services/authService';
 
 interface ForgotPasswordFormProps {
-  onSubmit: (email: string) => Promise<string>;
+  onSubmit: (email: string, captchaToken?: string | null) => Promise<string>;
   onSwitchToLogin: () => void;
 }
 
@@ -17,23 +18,39 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [captchaResetKey, setCaptchaResetKey] = useState(0);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
+    const cleanEmail = email.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(cleanEmail)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (!captchaToken) {
+      setError('Please complete the security verification before continuing.');
+      return;
+    }
+
     setError(null);
     setIsSubmitting(true);
     try {
-      const msg = await onSubmit(email);
+      const msg = await onSubmit(cleanEmail, captchaToken);
       setSuccessMessage(msg);
     } catch (err: any) {
       setError(formatAuthError(err));
+      setCaptchaResetKey((k) => k + 1);
+      setCaptchaToken(null);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+    <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
       {successMessage ? (
         <div style={{
           padding: '12px',
@@ -66,13 +83,25 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
             type="email"
             placeholder="e.g. name@company.com"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => { setEmail(e.target.value); if (error) setError(null); }}
             icon={<Mail size={14} />}
+            autoComplete="email"
+            inputMode="email"
+            spellCheck={false}
+            autoCapitalize="none"
+            maxLength={255}
             required
             autoFocus
           />
 
-          <Button type="submit" variant="primary" isLoading={isSubmitting} style={{ width: '100%' }}>
+          <div>
+            <label className="erp-label" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <ShieldCheck size={12} color="var(--blue-primary)" /> Security Verification
+            </label>
+            <Turnstile onToken={setCaptchaToken} resetKey={captchaResetKey} />
+          </div>
+
+          <Button type="submit" variant="primary" isLoading={isSubmitting} disabled={isSubmitting} style={{ width: '100%' }}>
             <Send size={14} />
             <span>Send Reset Link</span>
           </Button>
