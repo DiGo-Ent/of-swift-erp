@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the proposed 5-step computer vision detection workflow for BIOSHIELD AI, from leaf capture to CNN feature extraction and care suggestions.">
+  <meta name="keywords" content="BIOSHIELD AI workflow, CNN plant pathology, leaf image preprocessing, plant disease classification, computer vision pipeline">
+  <title>How It Works — BIOSHIELD AI Pipeline</title>
+  
+  <!-- Single Shared Stylesheet (Pure CSS3) -->
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23166534'><path d='M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z'/></svg>">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Brand Logo -->
+        <a href="index.html" class="brand-logo" aria-label="BIOSHIELD AI Homepage">
+          <div class="logo-icon-wrap" aria-hidden="true">
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+          </div>
+          <div class="brand-name">
+            <div>BIOSHIELD <span class="brand-ai">AI</span></div>
+            <span class="brand-tagline">Plant Health Intelligence</span>
+          </div>
+        </a>
+
+        <!-- CSS-Only Mobile Navigation Toggle -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu">
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu toggle">
+          <svg class="icon-md icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+          <svg class="icon-md icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </label>
+
+        <!-- Navigation Links with Active State on How It Works -->
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="how-it-works.html" class="nav-link active">How It Works</a></li>
+          <li><a href="features.html" class="nav-link">Features</a></li>
+          <li><a href="diseases.html" class="nav-link">Plant Diseases</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li class="mobile-cta-item"><a href="demo.html" class="btn btn-primary btn-sm">Explore Demo</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="demo.html" class="btn btn-primary btn-sm">
+            <span>Explore Demo</span>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Subpage Banner -->
+    <section class="page-header-banner">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>How It Works</span>
+        </nav>
+        <div class="section-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/>
+            <line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/>
+            <line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/>
+          </svg>
+          <span>5-Stage Architecture</span>
+        </div>
+        <h1 class="section-title">The Proposed AI Detection Pipeline</h1>
+        <p class="section-description">
+          A step-by-step walkthrough detailing how photographic leaf imagery is transformed into clinical botanical diagnoses and preventative field suggestions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Detailed 5-Step Workflow -->
+    <section class="section">
+      <div class="container">
+        <div class="workflow-timeline">
+
+          <!-- Step 1: Upload or Capture Leaf Image -->
+          <article class="workflow-card">
+            <div class="workflow-step-col">
+              <div class="workflow-step-circle">1</div>
+              <span class="workflow-step-label">Stage 01</span>
+            </div>
+            <div class="workflow-main-col">
+              <div class="workflow-title-wrap">
+                <div class="workflow-icon-pill" aria-hidden="true">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
+                    <path d="M12 12v9"/><path d="m16 16-4-4-4 4"/>
+                  </svg>
+                </div>
+                <h2 class="workflow-step-title">Upload / Capture Leaf Image</h2>
+              </div>
+              <p class="workflow-step-desc">
+                The user initiates the workflow by providing an optical image of a suspected leaf specimen. The system supports uploading local image files or direct real-time camera capture on smartphones or webcams in field settings.
+              </p>
+            </div>
+            <div class="workflow-detail-col">
+              <div class="detail-col-header">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                <span>Input Specifications</span>
+              </div>
+              <ul class="detail-col-list">
+                <li>JPG or PNG digital image format</li>
+                <li>Single leaf with clear view &amp; distinct margin</li>
+                <li>Captured through phone camera or webcam</li>
+                <li>Even, natural ambient lighting without glare</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Step 2: Image Preprocessing -->
+          <article class="workflow-card">
+            <div class="workflow-step-col">
+              <div class="workflow-step-circle">2</div>
+              <span class="workflow-step-label">Stage 02</span>
+            </div>
+            <div class="workflow-main-col">
+              <div class="workflow-title-wrap">
+                <div class="workflow-icon-pill" aria-hidden="true">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/>
+                    <line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/>
+                    <line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/>
+                  </svg>
+                </div>
+                <h2 class="workflow-step-title">Image Preprocessing</h2>
+              </div>
+              <p class="workflow-step-desc">
+                Raw photographic inputs are mathematically preconditioned. Optical artifacts, background shadows, and variable resolution scales are standardized to ensure consistent feature extraction by the model.
+              </p>
+            </div>
+            <div class="workflow-detail-col">
+              <div class="detail-col-header">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <span>How It Is Done</span>
+              </div>
+              <ul class="detail-col-list">
+                <li>Resize to fixed dimension: 224 × 224 pixels</li>
+                <li>Remove sensor noise and motion blur</li>
+                <li>Normalize RGB pixel values into [0.0, 1.0] range</li>
+                <li>Optional data augmentation (rotations, flips)</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Step 3: AI Model Analysis (CNN) -->
+          <article class="workflow-card">
+            <div class="workflow-step-col">
+              <div class="workflow-step-circle">3</div>
+              <span class="workflow-step-label">Stage 03</span>
+            </div>
+            <div class="workflow-main-col">
+              <div class="workflow-title-wrap">
+                <div class="workflow-icon-pill" aria-hidden="true">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="16" height="16" x="4" y="4" rx="2"/>
+                    <rect width="6" height="6" x="9" y="9" rx="1"/>
+                    <path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/>
+                  </svg>
+                </div>
+                <h2 class="workflow-step-title">AI Model Analysis (CNN)</h2>
+              </div>
+              <p class="workflow-step-desc">
+                A Convolutional Neural Network (CNN) extracts layered hierarchical features from the leaf image, scanning for subtle textural variations, chlorotic ring gradients, lesion perimeter geometry, and venation decay.
+              </p>
+            </div>
+            <div class="workflow-detail-col">
+              <div class="detail-col-header">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/></svg>
+                <span>Model Engine Specs</span>
+              </div>
+              <ul class="detail-col-list">
+                <li>Pre-trained architectures (e.g., ResNet, MobileNet)</li>
+                <li>Model learns patterns from healthy &amp; diseased leaves</li>
+                <li>Feature maps: edge detection, color shifts, spots</li>
+                <li>Generates raw logit probabilities per class</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Step 4: Disease Classification -->
+          <article class="workflow-card">
+            <div class="workflow-step-col">
+              <div class="workflow-step-circle">4</div>
+              <span class="workflow-step-label">Stage 04</span>
+            </div>
+            <div class="workflow-main-col">
+              <div class="workflow-title-wrap">
+                <div class="workflow-icon-pill" aria-hidden="true">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+                  </svg>
+                </div>
+                <h2 class="workflow-step-title">Disease Classification</h2>
+              </div>
+              <p class="workflow-step-desc">
+                The network calculates a softmax probability distribution across known disease classes. The category with the highest confidence score is selected. If all probabilities are below certainty threshold, it flags as "Unknown".
+              </p>
+              
+              <!-- Probabilities Bar Visual Representation -->
+              <div class="workflow-prob-bars" aria-label="Illustrative probability output">
+                <div class="prob-row">
+                  <span class="prob-name">Early Blight</span>
+                  <div class="prob-track"><div class="prob-fill fill-early"></div></div>
+                  <span class="prob-val">90%</span>
+                </div>
+                <div class="prob-row">
+                  <span class="prob-name">Healthy</span>
+                  <div class="prob-track"><div class="prob-fill fill-healthy"></div></div>
+                  <span class="prob-val">5%</span>
+                </div>
+                <div class="prob-row">
+                  <span class="prob-name">Late Blight</span>
+                  <div class="prob-track"><div class="prob-fill fill-late"></div></div>
+                  <span class="prob-val">3%</span>
+                </div>
+                <div class="prob-row">
+                  <span class="prob-name">Leaf Spot</span>
+                  <div class="prob-track"><div class="prob-fill fill-spot"></div></div>
+                  <span class="prob-val">2%</span>
+                </div>
+              </div>
+            </div>
+            <div class="workflow-detail-col">
+              <div class="detail-col-header">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                <span>Output from Model</span>
+              </div>
+              <ul class="detail-col-list">
+                <li>Primary disease name (e.g., Early Blight)</li>
+                <li>Confidence percentage score (e.g., 90%)</li>
+                <li>Multi-class probability distribution</li>
+                <li>Uncertainty safeguard: flags "Unknown"</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Step 5: Display Result -->
+          <article class="workflow-card">
+            <div class="workflow-step-col">
+              <div class="workflow-step-circle">5</div>
+              <span class="workflow-step-label">Stage 05</span>
+            </div>
+            <div class="workflow-main-col">
+              <div class="workflow-title-wrap">
+                <div class="workflow-icon-pill" aria-hidden="true">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+                    <path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>
+                  </svg>
+                </div>
+                <h2 class="workflow-step-title">Display Result &amp; Plant Care Information</h2>
+              </div>
+              <p class="workflow-step-desc">
+                Transforms complex machine learning classification logits into an accessible agronomic diagnostic summary, outlining pathogen causes, observed symptoms, and field-tested curative suggestions.
+              </p>
+            </div>
+            <div class="workflow-detail-col">
+              <div class="detail-col-header">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                <span>Information Shown</span>
+              </div>
+              <ul class="detail-col-list">
+                <li>Predicted disease name &amp; confidence</li>
+                <li>Short biological description (Alternaria solani)</li>
+                <li>Underlying causes &amp; progressive symptoms</li>
+                <li>Basic treatment &amp; preventive measures</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- Illustrative Workflow Disclaimer -->
+        <div class="disclaimer-banner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+          </svg>
+          <p>
+            <strong>Conceptual Showcase Note:</strong> This is an illustrative workflow demonstrating how a complete agricultural AI pipeline operates. The actual deep learning models and neural network weights are not connected to this static frontend page.
+          </p>
+        </div>
+
+        <!-- Next Action Button -->
+        <div style="text-align: center; margin-top: var(--space-3xl);">
+          <a href="demo.html" class="btn btn-primary btn-lg">
+            <span>Explore the Interactive Demo Simulation</span>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand-logo">
+            <div class="footer-logo-icon" aria-hidden="true">
+              <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              </svg>
+            </div>
+            <span class="footer-brand-title">BIOSHIELD <span>AI</span></span>
+          </div>
+          <p class="footer-tagline">
+            An educational frontend concept showcasing how artificial intelligence and computer vision could assist in early plant disease detection and agricultural health management.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Pages</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Concept</a></li>
+            <li><a href="how-it-works.html" class="footer-link">5-Step Workflow</a></li>
+            <li><a href="demo.html" class="footer-link">Interactive Demo</a></li>
+            <li><a href="features.html" class="footer-link">Key Features</a></li>
+            <li><a href="diseases.html" class="footer-link">Disease Categories</a></li>
+            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Deep Dive</h4>
+          <ul class="footer-links-list">
+            <li><a href="about.html" class="footer-link">Image Analysis Concept</a></li>
+            <li><a href="how-it-works.html" class="footer-link">CNN Architecture</a></li>
+            <li><a href="demo.html" class="footer-link">Diagnostic Preview</a></li>
+            <li><a href="about.html#benefits" class="footer-link">Stakeholder Benefits</a></li>
+            <li><a href="about.html#technology" class="footer-link">Technology Overview</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-tech-col">
+          <h4 class="footer-col-title">Technologies Used</h4>
+          <p style="font-size: 0.8125rem; color: #9ab4a3; margin-bottom: var(--space-sm); line-height: 1.5;">
+            Built with pure HTML5 &amp; CSS3 for maximum performance, accessibility, and zero external runtime dependencies.
+          </p>
+          <div class="footer-tech-tags">
+            <span class="footer-tech-tag">HTML5 Semantic</span>
+            <span class="footer-tech-tag">CSS3 Modern</span>
+            <span class="footer-tech-tag">Lucide Vector SVGs</span>
+            <span class="footer-tech-tag">CNN (Proposed)</span>
+            <span class="footer-tech-tag">TensorFlow (Proposed)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer-card">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Important Disclaimer:</strong> BIOSHIELD AI is a demonstration project. No live AI diagnosis or agricultural treatment recommendation is provided by this website.
+          </div>
+        </div>
+
+        <div class="footer-copyright-row">
+          <div>
+            &copy; 2026 BIOSHIELD AI Project. All rights reserved. Built with pure HTML5 &amp; CSS3.
+          </div>
+          <a href="#" class="back-to-top" aria-label="Back to top of page">
+            <span>Back to Top</span>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m18 15-6-6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

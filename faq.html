@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frequently Asked Questions about BIOSHIELD AI: project scope, computer vision pipeline, confidence scores, and future AI integration.">
+  <meta name="keywords" content="BIOSHIELD AI FAQ, plant pathology questions, agricultural AI FAQ, leaf image questions">
+  <title>Frequently Asked Questions — BIOSHIELD AI</title>
+  
+  <!-- Single Shared Stylesheet (Pure CSS3) -->
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23166534'><path d='M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z'/></svg>">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Brand Logo -->
+        <a href="index.html" class="brand-logo" aria-label="BIOSHIELD AI Homepage">
+          <div class="logo-icon-wrap" aria-hidden="true">
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+          </div>
+          <div class="brand-name">
+            <div>BIOSHIELD <span class="brand-ai">AI</span></div>
+            <span class="brand-tagline">Plant Health Intelligence</span>
+          </div>
+        </a>
+
+        <!-- CSS-Only Mobile Navigation Toggle -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu">
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu toggle">
+          <svg class="icon-md icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+          <svg class="icon-md icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </label>
+
+        <!-- Navigation Links with Active State on FAQ -->
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="features.html" class="nav-link">Features</a></li>
+          <li><a href="diseases.html" class="nav-link">Plant Diseases</a></li>
+          <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+          <li class="mobile-cta-item"><a href="demo.html" class="btn btn-primary btn-sm">Explore Demo</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="demo.html" class="btn btn-primary btn-sm">
+            <span>Explore Demo</span>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Subpage Banner -->
+    <section class="page-header-banner">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>FAQ</span>
+        </nav>
+        <div class="section-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>
+          </svg>
+          <span>Frequently Asked Questions</span>
+        </div>
+        <h1 class="section-title">Clear Answers &amp; Project Inquiries</h1>
+        <p class="section-description">
+          Detailed, transparent explanations regarding the BIOSHIELD AI concept, detection methodology, and technical architecture.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ Accordions Container -->
+    <section class="section">
+      <div class="container">
+        <div class="faq-container">
+          <!-- Question 1 -->
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              <span>What is BIOSHIELD AI?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              BIOSHIELD AI is a conceptual project showcasing how modern computer vision and deep learning techniques could assist growers, gardeners, and researchers in identifying crop diseases through leaf image analysis. It illustrates the complete pipeline from leaf image upload to disease diagnosis and plant-care recommendations.
+            </div>
+          </details>
+
+          <!-- Question 2 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>How does the proposed disease detection process work?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              The proposed process operates in five clear stages: (1) A leaf image is captured or uploaded, (2) the image is preprocessed and resized to 224×224 pixels, (3) a Convolutional Neural Network (CNN) extracts multi-scale visual features such as color, edges, and lesion patterns, (4) the model outputs probability scores across known disease classes, and (5) the predicted disease, confidence level, and relevant agronomic care advice are displayed.
+            </div>
+          </details>
+
+          <!-- Question 3 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Can I upload a leaf image on this website?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              No. This website is a static frontend demonstration built exclusively with HTML5 and CSS3. There is no file upload handler, server storage, or image processing backend connected. The interactive demo section provides a visual simulation of how an uploaded leaf and its inspection card would appear in a complete system.
+            </div>
+          </details>
+
+          <!-- Question 4 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Does the website perform real AI analysis?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              No, this website does not perform live AI analysis. It is an educational and design showcase that presents the user experience and architectural blueprint for an AI-based system. The example results, such as the 90% confidence score for Early Blight, are static illustrations created to show how information would be structured.
+            </div>
+          </details>
+
+          <!-- Question 5 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What does the confidence score mean?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              In a machine learning classification model, the confidence score represents the statistical softmax probability assigned to a specific class. For example, a 90% confidence score for Early Blight suggests that the network found strong pattern alignment with trained Early Blight features. If all probabilities fall below a predetermined threshold, a responsible model labels the specimen as "Unknown" to prevent false diagnoses.
+            </div>
+          </details>
+
+          <!-- Question 6 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Which plant diseases are illustrated?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              The showcase illustrates four foundational botanical categories commonly explored in benchmark datasets: Healthy Leaf, Early Blight (<em>Alternaria solani</em>), Late Blight (<em>Phytophthora infestans</em>), and Leaf Spot (<em>Septoria / Cercospora</em>). These demonstrate how visual symptoms vary from healthy foliage to severe fungal and oomycete infections.
+            </div>
+          </details>
+
+          <!-- Question 7 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Can this project be connected to a real AI model in the future?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              Yes, absolutely. The user interface layout, visual hierarchy, and component cards have been architected to accommodate live REST API endpoints or TensorFlow.js / ONNX web-runtime inference in future development phases, should a trained computer vision model be connected.
+            </div>
+          </details>
+
+          <!-- Question 8 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What datasets are typically used to train such agricultural AI models?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              Benchmark models typically utilize publicly available plant pathology datasets such as the PlantVillage dataset (containing over 54,000 curated leaf images across 14 crop species and 38 diseases) as well as field-collected datasets featuring variable background lighting and soil clutter to enhance real-world generalization.
+            </div>
+          </details>
+
+          <!-- Question 9 -->
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What are the best practices for photographing leaves for computer vision?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              For optimal accuracy in computer vision models: (1) Position the leaf flat against a neutral or plain background whenever possible, (2) avoid harsh shadows or direct sunlight glare, (3) ensure the primary lesion or discoloration is sharply in focus, and (4) capture the leaf at an angle perpendicular to the camera sensor.
+            </div>
+          </details>
+        </div>
+
+        <!-- Next Action -->
+        <div style="text-align: center; margin-top: var(--space-4xl);">
+          <a href="demo.html" class="btn btn-primary btn-lg">
+            <span>Launch Interactive Demo Showcase</span>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand-logo">
+            <div class="footer-logo-icon" aria-hidden="true">
+              <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              </svg>
+            </div>
+            <span class="footer-brand-title">BIOSHIELD <span>AI</span></span>
+          </div>
+          <p class="footer-tagline">
+            An educational frontend concept showcasing how artificial intelligence and computer vision could assist in early plant disease detection and agricultural health management.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Pages</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Concept</a></li>
+            <li><a href="how-it-works.html" class="footer-link">5-Step Workflow</a></li>
+            <li><a href="demo.html" class="footer-link">Interactive Demo</a></li>
+            <li><a href="features.html" class="footer-link">Key Features</a></li>
+            <li><a href="diseases.html" class="footer-link">Disease Categories</a></li>
+            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Deep Dive</h4>
+          <ul class="footer-links-list">
+            <li><a href="about.html" class="footer-link">Image Analysis Concept</a></li>
+            <li><a href="how-it-works.html" class="footer-link">CNN Architecture</a></li>
+            <li><a href="demo.html" class="footer-link">Diagnostic Preview</a></li>
+            <li><a href="about.html#benefits" class="footer-link">Stakeholder Benefits</a></li>
+            <li><a href="about.html#technology" class="footer-link">Technology Overview</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-tech-col">
+          <h4 class="footer-col-title">Technologies Used</h4>
+          <p style="font-size: 0.8125rem; color: #9ab4a3; margin-bottom: var(--space-sm); line-height: 1.5;">
+            Built with pure HTML5 &amp; CSS3 for maximum performance, accessibility, and zero external runtime dependencies.
+          </p>
+          <div class="footer-tech-tags">
+            <span class="footer-tech-tag">HTML5 Semantic</span>
+            <span class="footer-tech-tag">CSS3 Modern</span>
+            <span class="footer-tech-tag">Lucide Vector SVGs</span>
+            <span class="footer-tech-tag">CNN (Proposed)</span>
+            <span class="footer-tech-tag">TensorFlow (Proposed)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer-card">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Important Disclaimer:</strong> BIOSHIELD AI is a demonstration project. No live AI diagnosis or agricultural treatment recommendation is provided by this website.
+          </div>
+        </div>
+
+        <div class="footer-copyright-row">
+          <div>
+            &copy; 2026 BIOSHIELD AI Project. All rights reserved. Built with pure HTML5 &amp; CSS3.
+          </div>
+          <a href="#" class="back-to-top" aria-label="Back to top of page">
+            <span>Back to Top</span>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m18 15-6-6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

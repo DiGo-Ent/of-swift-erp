@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the plant disease categories demonstrated in BIOSHIELD AI: Healthy Leaf, Early Blight, Late Blight, and Leaf Spot with visual pathology details.">
+  <meta name="keywords" content="plant diseases, early blight, late blight, leaf spot, healthy foliage, agricultural pathology, leaf symptoms">
+  <title>Plant Disease Categories — BIOSHIELD AI</title>
+  
+  <!-- Single Shared Stylesheet (Pure CSS3) -->
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23166534'><path d='M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z'/></svg>">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Brand Logo -->
+        <a href="index.html" class="brand-logo" aria-label="BIOSHIELD AI Homepage">
+          <div class="logo-icon-wrap" aria-hidden="true">
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+          </div>
+          <div class="brand-name">
+            <div>BIOSHIELD <span class="brand-ai">AI</span></div>
+            <span class="brand-tagline">Plant Health Intelligence</span>
+          </div>
+        </a>
+
+        <!-- CSS-Only Mobile Navigation Toggle -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu">
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu toggle">
+          <svg class="icon-md icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+          <svg class="icon-md icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </label>
+
+        <!-- Navigation Links with Active State on Plant Diseases -->
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="features.html" class="nav-link">Features</a></li>
+          <li><a href="diseases.html" class="nav-link active">Plant Diseases</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li class="mobile-cta-item"><a href="demo.html" class="btn btn-primary btn-sm">Explore Demo</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="demo.html" class="btn btn-primary btn-sm">
+            <span>Explore Demo</span>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Subpage Banner -->
+    <section class="page-header-banner">
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Plant Diseases</span>
+        </nav>
+        <div class="section-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+          </svg>
+          <span>Pathology Library</span>
+        </div>
+        <h1 class="section-title">Demonstrated Disease Categories</h1>
+        <p class="section-description">
+          A botanical overview of the four benchmark conditions evaluated within the BIOSHIELD AI computer vision conceptual model.
+        </p>
+      </div>
+    </section>
+
+    <!-- Disease Cards Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="diseases-grid">
+          <!-- 1. Healthy Leaf -->
+          <article class="disease-card">
+            <div class="disease-media-wrap">
+              <img src="assets/images/healthy_leaf.jpg" alt="Vibrant green foliage displaying healthy chlorophyll distribution" class="disease-img" width="500" height="320" loading="lazy">
+              <span class="disease-badge badge-healthy">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                Healthy Foliage
+              </span>
+            </div>
+            <div class="disease-content">
+              <div class="disease-header">
+                <h2 class="disease-name">Healthy Leaf</h2>
+              </div>
+              <span class="disease-pathogen">Baseline Physiology</span>
+              <p class="disease-desc">
+                Serves as the indispensable negative baseline in neural network training, enabling convolutional filters to distinguish normal cellular textures from early necrotic onset.
+              </p>
+              <div class="disease-symptoms-box">
+                <div class="symptoms-label">Key Diagnostic Signs:</div>
+                <div class="symptoms-text">Rich, uniform chlorophyll coloration; intact cuticle layer; absence of wilting, chlorosis, or necrotic spotting.</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Early Blight -->
+          <article class="disease-card">
+            <div class="disease-media-wrap">
+              <img src="assets/images/early_blight.jpg" alt="Leaf displaying brown concentric circular spots of Early Blight" class="disease-img" width="500" height="320" loading="lazy">
+              <span class="disease-badge badge-early">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+                Fungal Blight
+              </span>
+            </div>
+            <div class="disease-content">
+              <div class="disease-header">
+                <h2 class="disease-name">Early Blight</h2>
+              </div>
+              <span class="disease-pathogen">Alternaria solani</span>
+              <p class="disease-desc">
+                A widespread fungal disease heavily impacting tomatoes and potatoes. It initiates on older lower leaves, forming dark lesions before moving up the canopy.
+              </p>
+              <div class="disease-symptoms-box">
+                <div class="symptoms-label">Key Diagnostic Signs:</div>
+                <div class="symptoms-text">Dark brown to black necrotic lesions with distinct concentric target rings, surrounded by yellow chlorotic halos.</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Late Blight -->
+          <article class="disease-card">
+            <div class="disease-media-wrap">
+              <img src="assets/images/late_blight.jpg" alt="Plant foliage with dark water-soaked decaying lesions of Late Blight" class="disease-img" width="500" height="320" loading="lazy">
+              <span class="disease-badge badge-late">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+                Oomycete Decay
+              </span>
+            </div>
+            <div class="disease-content">
+              <div class="disease-header">
+                <h2 class="disease-name">Late Blight</h2>
+              </div>
+              <span class="disease-pathogen">Phytophthora infestans</span>
+              <p class="disease-desc">
+                An aggressive, moisture-loving pathogen capable of decimating crop canopies within days. Historically responsible for the European potato blight.
+              </p>
+              <div class="disease-symptoms-box">
+                <div class="symptoms-label">Key Diagnostic Signs:</div>
+                <div class="symptoms-text">Irregular water-soaked olive-green to dark brown patches, often fringed with delicate white mycelium in high humidity.</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Leaf Spot -->
+          <article class="disease-card">
+            <div class="disease-media-wrap">
+              <img src="assets/images/leaf_spot.jpg" alt="Plant foliage with speckled circular spots of Septoria leaf spot" class="disease-img" width="500" height="320" loading="lazy">
+              <span class="disease-badge badge-spot">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+                Bacterial / Fungal
+              </span>
+            </div>
+            <div class="disease-content">
+              <div class="disease-header">
+                <h2 class="disease-name">Leaf Spot</h2>
+              </div>
+              <span class="disease-pathogen">Septoria / Cercospora spp.</span>
+              <p class="disease-desc">
+                Characterized by countless discrete circular lesions caused by various fungal or bacterial agents that compromise the photosynthetic surface.
+              </p>
+              <div class="disease-symptoms-box">
+                <div class="symptoms-label">Key Diagnostic Signs:</div>
+                <div class="symptoms-text">Small circular spots (1-3mm) with ash-gray centers and dark borders, resulting in premature leaf yellowing and drop.</div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Comparative Diagnostic Table -->
+        <div style="margin-top: var(--space-4xl);">
+          <div class="section-header" style="margin-bottom: var(--space-lg);">
+            <div class="section-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+              </svg>
+              <span>Pathology Comparison</span>
+            </div>
+            <h2 class="section-title">Comparative Diagnostic Summary</h2>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Pathogen Type</th>
+                  <th>Lesion Morphology</th>
+                  <th>High-Risk Weather</th>
+                  <th>Primary Field Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Healthy Leaf</strong></td>
+                  <td>None (Normal Plant)</td>
+                  <td>Uniform leaf blade, no spots</td>
+                  <td>Optimal conditions</td>
+                  <td>Maintain nutrition &amp; routine scouting</td>
+                </tr>
+                <tr>
+                  <td><strong>Early Blight</strong></td>
+                  <td>Fungal (<em>A. solani</em>)</td>
+                  <td>Concentric rings, target spots</td>
+                  <td>Warm (24–29°C) &amp; humid</td>
+                  <td>Prune bottom foliage, apply bio-fungicide</td>
+                </tr>
+                <tr>
+                  <td><strong>Late Blight</strong></td>
+                  <td>Oomycete (<em>P. infestans</em>)</td>
+                  <td>Water-soaked irregular patches</td>
+                  <td>Cool (15–20°C) &amp; wet</td>
+                  <td>Immediate removal, isolate affected row</td>
+                </tr>
+                <tr>
+                  <td><strong>Leaf Spot</strong></td>
+                  <td>Fungal/Bacterial (<em>Septoria</em>)</td>
+                  <td>Small circular spots, gray center</td>
+                  <td>Prolonged leaf wetness</td>
+                  <td>Drip irrigation, increase airflow spacing</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Illustrative Categories Disclaimer -->
+        <div class="disclaimer-banner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+          </svg>
+          <p>
+            <strong>Note on Illustrated Categories:</strong> These four conditions represent standard benchmarking categories in computer vision datasets (such as PlantVillage). This showcase does not encompass all plant species or crop pathogens.
+          </p>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--space-3xl);">
+          <a href="demo.html" class="btn btn-primary btn-lg">
+            <span>See Sample Early Blight Diagnosis in Demo</span>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand-logo">
+            <div class="footer-logo-icon" aria-hidden="true">
+              <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              </svg>
+            </div>
+            <span class="footer-brand-title">BIOSHIELD <span>AI</span></span>
+          </div>
+          <p class="footer-tagline">
+            An educational frontend concept showcasing how artificial intelligence and computer vision could assist in early plant disease detection and agricultural health management.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Pages</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Concept</a></li>
+            <li><a href="how-it-works.html" class="footer-link">5-Step Workflow</a></li>
+            <li><a href="demo.html" class="footer-link">Interactive Demo</a></li>
+            <li><a href="features.html" class="footer-link">Key Features</a></li>
+            <li><a href="diseases.html" class="footer-link">Disease Categories</a></li>
+            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Deep Dive</h4>
+          <ul class="footer-links-list">
+            <li><a href="about.html" class="footer-link">Image Analysis Concept</a></li>
+            <li><a href="how-it-works.html" class="footer-link">CNN Architecture</a></li>
+            <li><a href="demo.html" class="footer-link">Diagnostic Preview</a></li>
+            <li><a href="about.html#benefits" class="footer-link">Stakeholder Benefits</a></li>
+            <li><a href="about.html#technology" class="footer-link">Technology Overview</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-tech-col">
+          <h4 class="footer-col-title">Technologies Used</h4>
+          <p style="font-size: 0.8125rem; color: #9ab4a3; margin-bottom: var(--space-sm); line-height: 1.5;">
+            Built with pure HTML5 &amp; CSS3 for maximum performance, accessibility, and zero external runtime dependencies.
+          </p>
+          <div class="footer-tech-tags">
+            <span class="footer-tech-tag">HTML5 Semantic</span>
+            <span class="footer-tech-tag">CSS3 Modern</span>
+            <span class="footer-tech-tag">Lucide Vector SVGs</span>
+            <span class="footer-tech-tag">CNN (Proposed)</span>
+            <span class="footer-tech-tag">TensorFlow (Proposed)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer-card">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Important Disclaimer:</strong> BIOSHIELD AI is a demonstration project. No live AI diagnosis or agricultural treatment recommendation is provided by this website.
+          </div>
+        </div>
+
+        <div class="footer-copyright-row">
+          <div>
+            &copy; 2026 BIOSHIELD AI Project. All rights reserved. Built with pure HTML5 &amp; CSS3.
+          </div>
+          <a href="#" class="back-to-top" aria-label="Back to top of page">
+            <span>Back to Top</span>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m18 15-6-6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
